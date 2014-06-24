@@ -5,19 +5,30 @@ function CHART_DISPLAY(chartData) {
 
 	var chartData = chartData;
 
-	CHART_DISPLAY.prototype.monthly = function() {
+	CHART_DISPLAY.prototype.monthly = function(colors) {
+
+		this.colors = colors;
+
+		console.log(colors);
 
 		console.log("at monthly");
 
-		var colorsLine = ["rgba(220,0,0,1)","rgba(0,0,0,1)","rgba(128,0,128,1)","rgba(128,128,128,1)"];
-		var colorsFill = ["rgba(220,0,0,0.5)","rgba(0,0,0,0.5)","rgba(128,0,128,0.5)","rgba(128,128,128,0.5)"];
+		var colorsFill = new Object();
+
+		for (var key in colors){
+			var fullValue = colors[key];
+			fillValue = fullValue.replace(/(,1\))/g,',0.5)');
+			colorsFill[key] = fillValue;
+		}
 
 		var colorCounter = 0;
 
 		for (var key in chartData){
 
-			var chartName = '#' + key.toLowerCase();
-			var ctx = $(chartName).get(0).getContext("2d");
+			var chartName = key.toLowerCase();
+
+			var chartIDdoc = '#' + chartName;
+			var ctx = $(chartIDdoc).get(0).getContext("2d");
 			var category = chartData[key];
 
 			console.log(category);
@@ -31,10 +42,10 @@ function CHART_DISPLAY(chartData) {
 							labels : ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Nov","Dec"],
 							datasets : [
 								{
-									fillColor : colorsFill[colorCounter],
-									strokeColor : colorsLine[colorCounter],
-									pointColor : colorsLine[colorCounter],
-									pointStrokeColor : colorsLine[colorCounter],
+									fillColor : colorsFill[chartName],
+									strokeColor : colors.chartName,
+									pointColor : colors.chartName,
+									pointStrokeColor : colors.chartName,
 									data : tempArray
 								},
 							]

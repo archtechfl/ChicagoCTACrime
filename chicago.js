@@ -71,6 +71,6 @@ function processData() {
 
 	var dataProcess = new CHICAGO_DATA(receptacle);
 	var majorCrimeCTA_EL_monthly = dataProcess.monthlyTotal("primary_type");
-	var displayMonthly = new CHART_DISPLAY(majorCrimeCTA_EL_monthly).monthly();
+	var displayMonthly = new CHART_DISPLAY(majorCrimeCTA_EL_monthly).monthly({robbery : "rgba(220,0,0,1)", assault : "rgba(0,0,0,1)", battery : "rgba(128,0,128,1)", theft : "rgba(128,128,128,1)"});
 
 }
