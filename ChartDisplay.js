@@ -38,6 +38,19 @@ function CHART_DISPLAY(chartData) {
 				tempArray.push(category[key]);
 			}
 
+			var chartBounds = minMax(tempArray);
+			var chartMax = Math.ceil(chartBounds.max / 10) * 10,
+				startVal = Math.floor(chartBounds.min / 10) * 10;
+
+			var stepWidth = 10;
+			var numSteps = 0;
+			if ((chartMax - startVal) < 50){
+				stepWidth = stepWidth / 2;
+				numSteps = (chartMax - startVal) / stepWidth;
+			} else {
+				numSteps = (chartMax - startVal) / stepWidth;
+			}
+
 			var data = {
 							labels : ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Nov","Dec"],
 							datasets : [
@@ -51,11 +64,29 @@ function CHART_DISPLAY(chartData) {
 							]
 						}
 
-			var myNewChart = new Chart(ctx).Line(data,{bezierCurve : false, scaleGridLineColor : "rgba(0,0,0,.2)", pointDotRadius : 2});
+			var myNewChart = new Chart(ctx).Line(data,{bezierCurve : false, scaleGridLineColor : "rgba(0,0,0,.2)", pointDotRadius : 2, 
+				scaleOverride : true,
+				scaleSteps : numSteps,
+				scaleStepWidth : stepWidth,
+				scaleStartValue : startVal});
 
 			colorCounter++;
 		}
 
 	}//end chart display monthly
+
+	function minMax(array){
+		this.array = array;
+
+		var max = Math.max.apply(Math, array);
+		var min = Math.min.apply(Math, array);
+
+		var minMaxReturn = new Object();
+		minMaxReturn.min = min;
+		minMaxReturn.max = max;
+
+		return minMaxReturn;
+
+	}
 
 }
