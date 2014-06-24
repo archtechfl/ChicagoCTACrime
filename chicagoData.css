@@ -1,0 +1,8 @@
+/*stylesheet*/
+
+div {
+	display:block;
+	float:left;
+	width:50%;
+	height:450px;
+}
