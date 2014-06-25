@@ -9,8 +9,6 @@ function CHART_DISPLAY(chartData) {
 
 		this.colors = colors;
 
-		console.log(colors);
-
 		console.log("at monthly");
 
 		var colorsFill = new Object();
@@ -30,8 +28,6 @@ function CHART_DISPLAY(chartData) {
 			var chartIDdoc = '#' + chartName;
 			var ctx = $(chartIDdoc).get(0).getContext("2d");
 			var category = chartData[key];
-
-			console.log(category);
 
 			var tempArray = new Array();
 			for (var key in category){

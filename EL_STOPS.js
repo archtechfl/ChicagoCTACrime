@@ -9,16 +9,26 @@ function EL_STOPS(){
 		console.log("listing");
 		var getData = $.ajax({
 						url: endPoint,
+						context: this,
 						type: "GET",
-						dataType: "json",
-						complete: function (data) {success(data);}
-
+						dataType: "json"
 		});
 
-		function success(data){
-			console.log(data);
-		}
+		getData.done( function(response){
 
+			data = response;
+			this.results(data);
+
+		});//end of response
+
+		return this;
+
+	}
+
+	EL_STOPS.prototype.results = function(suppliedData) {
+		console.log("results");
+		var theData = suppliedData;
+		return data;
 	}
 
 }
