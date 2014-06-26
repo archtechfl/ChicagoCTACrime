@@ -79,7 +79,6 @@ function CHICAGO_DATA(publicData) {
 		console.log("at stationCrime");
 		this.stationsListing = stationsListing;
 		console.log(stationsListing);
-		console.log(theData);
 	};
 
 }
