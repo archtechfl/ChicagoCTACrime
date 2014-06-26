@@ -75,4 +75,11 @@ function CHICAGO_DATA(publicData) {
 
 	}//end of monthlyTotal
 
+	CHICAGO_DATA.prototype.stationCrime = function(stationsListing) {
+		console.log("at stationCrime");
+		this.stationsListing = stationsListing;
+		console.log(stationsListing);
+		console.log(theData);
+	};
+
 }
