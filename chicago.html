@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="../bower_components/jquery/dist/jquery.min.js"></script>
-<script src="../bower_components/chartjs/Chart.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="Chart.min.js"></script>
 <script src="ChartDisplay.js"></script>
 <script src="EL_STOPS.js"></script>
 <script src="ChicagoData.js"></script>
 <script src="chicago.js"></script>
-<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="chicagoData.css">
 
 </head>
 <body>
+	<div class="container">
+		<h1>CTA Crime</h1>
+		<div class="robbery_container chart-container">
+			<h2>Robbery</h2>
+			<canvas id="robbery" width="400" height="400"></canvas>
+		</div>
 
-<div class="robbery_container">
-	<p>Robbery</p>
-	<canvas id="robbery" width="400" height="400"></canvas>
-</div>
+		<div class="battery_container chart-container">
+			<h2>Battery</h2>
+			<canvas id="battery" width="400" height="400"></canvas>
+		</div>
 
-<div class="battery_container">
-	<p>Battery</p>
-	<canvas id="battery" width="400" height="400"></canvas>
-</div>
+		<div class="assault_container chart-container">
+			<h2>Assault</h2>
+			<canvas id="assault" width="400" height="400"></canvas>
+		</div>
 
-<div class="assault_container">
-	<p>Assault</p>
-	<canvas id="assault" width="400" height="400"></canvas>
-</div>
-
-<div class="theft_container">
-	<p>Theft</p>
-	<canvas id="theft" width="400" height="400"></canvas>
-</div>
-
+		<div class="theft_container chart-container">
+			<h2>Theft</h2>
+			<canvas id="theft" width="400" height="400"></canvas>
+		</div>
+	</div>
 </body>
 </html>
